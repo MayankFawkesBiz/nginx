@@ -8,10 +8,10 @@ RUN apt update \
 
 WORKDIR /app
 RUN wget https://nginx.org/download/nginx-$NGINX_VERSION.tar.gz && tar -zxf nginx-$NGINX_VERSION.tar.gz
-RUN git clone https://github.com/google/ngx_brotli
-RUN cd nginx-$NGINX_VERSION && ./configure --with-compat --add-dynamic-module=../ngx_brotli \
+RUN git clone --recurse-submodules -j8 https://github.com/google/ngx_brotli
+RUN cd nginx-${NGINX_VERSION} && ./configure --with-compat --add-dynamic-module=../ngx_brotli \
     && make modules
 
-FROM nginx:1.24.0
+FROM nginx:stable
 COPY --from=builder /app/nginx-$NGINX_VERSION/objs/ngx_http_brotli_static_module.so /etc/nginx/modules/
 COPY --from=builder /app/nginx-$NGINX_VERSION/objs/ngx_http_brotli_filter_module.so /etc/nginx/modules/
