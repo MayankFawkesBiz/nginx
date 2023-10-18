@@ -1,6 +1,6 @@
 FROM ubuntu:22.04 as builder
 
-ARG NGINX_VERSION=3.6
+ARG NGINX_VERSION=1.24.0
 
 RUN apt update \
     && apt upgrade -y \
@@ -12,6 +12,6 @@ RUN git clone https://github.com/google/ngx_brotli
 RUN cd nginx-$NGINX_VERSION && ./configure --with-compat --add-dynamic-module=../ngx_brotli \
     && make modules
 
-FROM nginx:$NGINX_VERSION
+FROM nginx:${NGINX_VERSION}
 COPY --from=builder /app/nginx-$NGINX_VERSION/objs/ngx_http_brotli_static_module.so /etc/nginx/modules/
 COPY --from=builder /app/nginx-$NGINX_VERSION/objs/ngx_http_brotli_filter_module.so /etc/nginx/modules/
