@@ -1,6 +1,6 @@
 FROM ubuntu:22.04 as builder
 
-ARG NGINX_VERSION=1.24.0
+ARG NGINX_VERSION=${NGINX_VERSION}
 
 RUN apt update \
     && apt upgrade -y \

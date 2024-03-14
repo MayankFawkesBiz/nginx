@@ -1,4 +1,4 @@
-name: Build and push
+name: Build and push Stable Nginx Docker image
 
 on:
   push:
@@ -26,4 +26,6 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
+          build-args: |
+            NGINX_VERSION=1.24.0
           tags: mayankfawkes/nginx:1.24.0,mayankfawkes/nginx:stable
