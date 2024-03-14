@@ -28,4 +28,5 @@ jobs:
           push: true
           build-args: |
             NGINX_VERSION=1.24.0
+            NGINX_VERSION_NAME=stable
           tags: mayankfawkes/nginx:1.24.0,mayankfawkes/nginx:stable
