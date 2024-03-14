@@ -1,4 +1,4 @@
-name: Build and push Stable Nginx Docker image
+name: Build and push mainline Nginx Docker image
 
 on:
   push:
@@ -28,5 +28,4 @@ jobs:
           push: true
           build-args: |
             NGINX_VERSION=1.25.4
-            NGINX_VERSION_NAME=mainline
           tags: mayankfawkes/nginx:1.25.4,mayankfawkes/nginx:mainline
