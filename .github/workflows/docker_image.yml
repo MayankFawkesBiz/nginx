@@ -28,5 +28,5 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           build-args: |
-            NGINX_VERSION=1.24.0
-          tags: mayankfawkes/nginx:1.24.0,mayankfawkes/nginx:stable
+            NGINX_VERSION=1.26.2
+          tags: mayankfawkes/nginx:1.26.2,mayankfawkes/nginx:stable
