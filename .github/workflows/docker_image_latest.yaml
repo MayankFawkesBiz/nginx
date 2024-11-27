@@ -29,4 +29,4 @@ jobs:
           push: true
           build-args: |
             NGINX_VERSION=1.27.3
-          tags: mayankfawkes/nginx:1.27.1,mayankfawkes/nginx:mainline
+          tags: mayankfawkes/nginx:1.27.3,mayankfawkes/nginx:mainline
